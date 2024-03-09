@@ -1,7 +1,8 @@
 version: '3'
 services:  # Используемые сервисы
   php: # Директива имени контейнера
-    image: php:8.3.4RC1-fpm # Директива имени образа, версии
+    build: 
+      context: ./docker/php # Путь к dockerfile который отвечает за сборку
     volumes: # Директива для записи файла index.php в контейнер
       - './src:/var/www/html'
 
