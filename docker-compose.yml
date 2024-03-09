@@ -1,0 +1,27 @@
+version: '3'
+services:  # Используемые сервисы
+  php: # Директива имени контейнера
+    image: php:8.3.4RC1-fpm # Директива имени образа, версии
+    volumes: # Директива для записи файла index.php в контейнер
+      - './src:/var/www/html'
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80 # Порт local:container
+    volumes:
+      - './src:/var/www/html'
+      - './docker/nginx/conf.d:/etc/nginx/conf.d' # Путь к базовым настройкам сервера local:container
+
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root # Добавили пароль для бд
+
+
+
+
+
+
+
+
