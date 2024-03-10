@@ -18,6 +18,8 @@ services:  # Используемые сервисы
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=root # Добавили пароль для бд
+    volumes:
+      - './docker/volume/mysql:/var/lib/mysql' # 
 
 
 
